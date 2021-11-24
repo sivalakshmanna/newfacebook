@@ -3,7 +3,7 @@
     parameters{
         string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'give branch name')
         string(name: 'BRANCH_PIPE', defaultValue: 'master', description: 'give branch name')
-        //string(name: 'SOURCE_CODE', defaultValue: 'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git', description: 'give branch name')
+        string(name: 'SOURCE_CODE', defaultValue: 'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git', description: 'give branch name')
         //string(name: 'POM', defaultValue: '', description: 'give branch name')
     }
     stages{
