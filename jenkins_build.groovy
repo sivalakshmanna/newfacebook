@@ -1,10 +1,7 @@
  pipeline{
     agent any 
-    parameters{
-        string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'give branch name')
-        string(name: 'BRANCH_PIPE', defaultValue: 'master', description: 'give branch name')
-        string(name: 'SOURCE_CODE', defaultValue: 'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git', description: 'source code')
-        
+    environment{
+        BRANCH = "${env.BRANCH_NAME}"
     }
     stages{
         stage("clone the code"){
