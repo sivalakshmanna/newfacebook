@@ -3,13 +3,18 @@
     parameters{
         string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'give branch name')
         string(name: 'BRANCH_PIPE', defaultValue: 'master', description: 'give branch name')
-        string(name: 'SOURCE_CODE', defaultValue: 'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git', description: 'give branch name')
-        //string(name: 'POM', defaultValue: '', description: 'give branch name')
+        string(name: 'SOURCE_CODE', defaultValue: 'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git', description: 'source code')
+        
     }
     stages{
         stage("clone the code"){
             steps{
                 println "clonig the code from git hub"
+                sh "ls -l"
+                sh "ls -lart ./*"
+                git branch: "${BRANCH_NAME}",
+                url:  'https://github.com/sivalakshmanna/boxfuse-sample-java-war-hello.git
+                
             }
         }
         stage("build the code"){
