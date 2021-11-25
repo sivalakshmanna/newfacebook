@@ -25,7 +25,7 @@ pipeline{
                   echo $inputArray
                    
                  IFS=',' read -r -a outputArray <<< "$inputArray"
-                  for ip in ${outputArray[@]}
+                  for ip in ${outputArray[serverip]}
                   do
                         echo "deploying code to : $ip"
                   
