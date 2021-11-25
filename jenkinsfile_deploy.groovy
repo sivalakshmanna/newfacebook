@@ -28,11 +28,9 @@ pipeline{
                   for ip in ${outputArray[SERVER_IP]}
                   do
                         echo "deploying code to : $ip"
-                  
-                  
-                 "ssh  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP} \"sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\""
-                done
+                   done
                    """
+                 "ssh  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP} \"sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\""
             }
         }
     }
