@@ -21,11 +21,11 @@ pipeline{
                 //sh "ssh -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP}" 
                 sh "scp  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/tmp/"
                 sh """
-                 inputArray=$serverip
+                 inputArray=$SERVER_IP
                   echo $inputArray
                    
                  IFS=',' read -r -a outputArray <<< "$inputArray"
-                  for ip in ${outputArray[serverip]}
+                  for ip in ${outputArray[SERVER_IP]}
                   do
                         echo "deploying code to : $ip"
                   
