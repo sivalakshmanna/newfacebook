@@ -23,7 +23,6 @@ pipeline{
                // sh "ssh  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP} \"sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\""
                 sh """inputArray=$serverip
                      echo $inputArray
-                     echo $#
                      IFS=',' read -r -a outputArray <<< "$inputArray"
                      for ip in ${outputArray[@]}
                      do
