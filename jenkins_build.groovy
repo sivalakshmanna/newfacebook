@@ -1,4 +1,4 @@
-pipeline{
+[8:08 pm, 24/11/2021] Lucky: pipeline{
     agent any 
     parameters{
         string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'give branch name')
