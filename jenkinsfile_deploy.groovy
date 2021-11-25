@@ -24,9 +24,9 @@ pipeline{
                 sh """inputArray=$serverip
                      echo $inputArray
                      IFS=',' read -r -a outputArray <<< "$inputArray"
-                     for ip in ${outputArray[@]}
+                     for SERVER_IP in ${outputArray[@]}
                      do
-                     echo "deploying code to : $ip"
+                     echo "deploying code to : $SERVER_IP"
                      scp  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem target/hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps
                      done
                      """
