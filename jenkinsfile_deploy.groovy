@@ -25,10 +25,10 @@ pipeline{
                     inputArray=$serverip
                      echo $inputArray
                      IFS=',' read -r -a outputArray <<< "$inputArray"
-                     for ip in ${outputArray[ip]},
+                     for SERVER_IP in ${outputArray[SERVR_IP]},
                      do
-                     echo "deploying code to : $ip"
-                     ssh -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem  ec2-user@${ip} \"sud0  cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\"
+                     echo "deploying code to : $SERVER_IP"
+                     ssh -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem  ec2-user@${SERVER_IP} \"sud0  cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\"
                      done
                      """
             }
