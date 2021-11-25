@@ -20,7 +20,16 @@ pipeline{
                 println "copying artifacts"
                 //sh "ssh -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP}" 
                 sh "scp  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/tmp/"
-                sh "ssh  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP} \"sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\""
+               // sh "ssh  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem ec2-user@${SERVER_IP} \"sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps\""
+                sh "inputArray=$serverip
+                     echo $inputArray
+                     echo $#
+                     IFS=',' read -r -a outputArray <<< "$inputArray"
+                     for ip in ${outputArray[@]}
+                     do
+                     echo "deploying code to : $ip"
+                     scp  -o StrictHostKeyChecking=no -i /tmp/sivalakshmanna07.pem target/hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps
+                     done"
             }
         }
     }
