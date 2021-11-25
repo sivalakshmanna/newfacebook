@@ -23,7 +23,7 @@ pipeline{
                 sh """
                  inputArray=$serverip
                   echo $inputArray
-                   echo $#
+                   
                  IFS=',' read -r -a outputArray <<< "$inputArray"
                   for ip in ${outputArray[@]}
                   do
