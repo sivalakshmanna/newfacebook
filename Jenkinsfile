@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-        go "go"
+        go "1.17.6"
     }
     stages{
         stage("chekout code"){
